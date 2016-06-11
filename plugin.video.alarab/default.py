@@ -13,16 +13,17 @@ _pluginName = (sys.argv[0])
 
 
 def CATEGORIES():
-	addDir("RAMADAN MORROCAN SERIES","/ramadan2016/مغربية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN SYRIAN SERIES","http://tv1.alarab.com/ramadan2016/سورية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN EGYPTIAN SERIES","http://tv1.alarab.net/ramadan2016/مصرية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN KHALIJI SERIES","http://tv1.alarab.net/ramadan2016/خليجية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN LEBANESE SERIES","http://tv1.alarab.net/ramadan2016/لبانينة",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN KUWAITI SERIES","http://tv1.alarab.net/ramadan2016/كويتية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN SAUDI SERIES","http://tv1.alarab.net/ramadan2016/سعودية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN JORDANIAN SERIES","http://tv1.alarab.net/ramadan2016/اردنية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN BAHRAINI SERIES","http://tv1.alarab.net/ramadan2016/بحرينية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
-	addDir("RAMADAN EMARATI SERIES","http://tv1.alarab.net/ramadan2016/اماراتية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان المغربية","http://tv1.alarab.com/ramadan2016/مغربية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان السورية","http://tv1.alarab.com/ramadan2016/سورية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان المصرية","http://tv1.alarab.com/ramadan2016/مصرية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان الخليجية","http://tv1.alarab.com/ramadan2016/خليجية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان اللبانينة","http://tv1.alarab.com/ramadan2016/لبانينة",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان الكويتية","http://tv1.alarab.com/ramadan2016/كويتية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان السعودية","http://tv1.alarab.com/ramadan2016/سعودية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان الاردنية","http://tv1.alarab.com/ramadan2016/اردنية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان البحرينية","http://tv1.alarab.com/ramadan2016/بحرينية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	addDir("مسلسلات رمضان الاماراتية","http://tv1.alarab.com/ramadan2016/اماراتية",2,"http://wadeni.com/images/icons/0alarab-net.jpg")
+	
 
 def getMovie(url):
 	openerx = urllib2.build_opener()
@@ -34,7 +35,7 @@ def getMovie(url):
 	for i in range(1,wieviele+1):
 		linkjetzt = teilen[i].split('"')
 		imgjetzt = linkjetzt[3]
-		urljetzt = "http://tv1.alarab.net/"+linkjetzt[1]
+		urljetzt = "http://tv1.alarab.com/"+linkjetzt[1]
 		namejetzt = linkjetzt[5]
 		addLink(namejetzt,urljetzt,4,imgjetzt)
 	seitenzahl1 = contentx.split('<div class="pages"><center>')
@@ -46,7 +47,7 @@ def getMovie(url):
 	seitenwieviel = seitenzahl2[0].count("href")
 	if int(seitenzahlselected) < seitenwieviel:
 		nextpagelink1 = seitenzahl3[1].split('"')
-		nextpagelink = "http://tv1.alarab.net" + nextpagelink1[7]
+		nextpagelink = "http://tv1.alarab.com" + nextpagelink1[7]
 		addDir("("+seitenzahlselected+"/"+str(seitenwieviel)+") Next Page",nextpagelink,1,"http://wadeni.com/images/icons/0alarab-net.jpg")
 
 def getSerie(url):
@@ -59,7 +60,7 @@ def getSerie(url):
 	for i in range(1,wieviele+1):
 		linkjetzt = teilen[i].split('"')
 		imgjetzt = linkjetzt[3]
-		urljetzt = "http://tv1.alarab.net/"+linkjetzt[1]
+		urljetzt = "http://tv1.alarab.com/"+linkjetzt[1]
 		namejetzt = linkjetzt[5]
 		addDir(namejetzt,urljetzt,3,imgjetzt)
 	seitenzahl1 = contentx.split('<div class="pages"><center>')
@@ -71,7 +72,7 @@ def getSerie(url):
 	seitenwieviel = seitenzahl2[0].count("href")
 	if int(seitenzahlselected) < seitenwieviel:
 		nextpagelink1 = seitenzahl3[1].split('"')
-		nextpagelink = "http://tv1.alarab.net" + nextpagelink1[7]
+		nextpagelink = "http://tv1.alarab.com" + nextpagelink1[7]
 		addDir("("+seitenzahlselected+"/"+str(seitenwieviel)+") Next Page",nextpagelink,2,"http://wadeni.com/images/icons/0alarab-net.jpg")
 
 def getSerieFolge(url):
@@ -84,7 +85,7 @@ def getSerieFolge(url):
 	for i in range(1,wieviele+1):
 		linkjetzt = teilen[i].split('"')
 		imgjetzt = linkjetzt[3]
-		urljetzt = "http://tv1.alarab.net/"+linkjetzt[1]
+		urljetzt = "http://tv1.alarab.com/"+linkjetzt[1]
 		namejetzt = linkjetzt[5]
 		addLink(namejetzt,urljetzt,4,imgjetzt)
 	seitenzahl1 = contentx.split('<div class="pages"><center>')
@@ -96,7 +97,7 @@ def getSerieFolge(url):
 	seitenwieviel = seitenzahl2[0].count("href")
 	if int(seitenzahlselected) < seitenwieviel:
 		nextpagelink1 = seitenzahl3[1].split('"')
-		nextpagelink = "http://tv1.alarab.net" + nextpagelink1[7]
+		nextpagelink = "http://tv1.alarab.com" + nextpagelink1[7]
 		addDir("("+seitenzahlselected+"/"+str(seitenwieviel)+") Next Page",nextpagelink,3,"http://wadeni.com/images/icons/0alarab-net.jpg")
 
 def PlayMovie(url):
